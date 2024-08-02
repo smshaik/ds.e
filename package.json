@@ -1,0 +1,50 @@
+{
+  "name": "@ds.e/core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "normalize-scss": "^8.0.0",
+    "react": "^18.3.1"
+  },
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "playgrounds/*"
+    ],
+    "nohoist": [
+      "**/normalize-scss"
+    ]
+  },
+  "scripts": {
+    "test": "lerna run test",
+    "build": "lerna run build",
+    "dev": "lerna run dev",
+    "publish": "npm test && npm run build && lerna publish",
+    "commit": "npm git-cz",
+    "test:chromatic": "npm lerna run test:chromatic",
+    "build:storybook": "npm run build && npm lerna run build-storybook"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "lerna": "^8.1.7",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5"
+  }
+}
